@@ -16,6 +16,7 @@ x = tf.keras.layers.Conv2D(filters=64, kernel_size=(3, 3), activation="relu")(x)
 x = tf.keras.layers.MaxPooling2D(pool_size=(3, 3))(x)
 x = tf.keras.layers.Flatten()(x)
 
+
 num_classes = 4
 outputs = tf.keras.layers.Dense(num_classes, activation="softmax")(x)
 
