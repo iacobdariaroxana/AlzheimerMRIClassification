@@ -9,7 +9,7 @@ test_dataset = tf.keras.preprocessing.image_dataset_from_directory(
     '../prepdata/test', batch_size=64, image_size=(176, 208))
 
 inputs = tf.keras.Input(shape=(176, 208, 3))
-x = tf.keras.layers.Rescaling(scale=1.0 / 255)(inputs)
+x = tf.keras.layers.Rescaling(scale=1.0 / 127.5, offset=-1)(inputs)
 x = tf.keras.layers.Conv2D(filters=32, kernel_size=(3, 3), activation="relu")(x)
 x = tf.keras.layers.MaxPooling2D(pool_size=(3, 3))(x)
 x = tf.keras.layers.Dense(64)(x)
